@@ -157,7 +157,7 @@ footer a{color:var(--purple)}
 </tr>
 <tr>
 <td><strong>Gender</strong></td>
-<td>Optional, and includes a "prefer not to say" option. Used only for match filtering — never displayed on your profile</td>
+<td>Optional. Shown on your profile, and used for match filtering. Select "prefer not to say" and nothing is displayed</td>
 </tr>
 <tr>
 <td><strong>Study preferences</strong></td>
@@ -251,15 +251,18 @@ footer a{color:var(--purple)}
 <li>Your <strong>gender</strong>, <em>if</em> you selected "prefer not to say" — that choice is honoured and no gender is shown</li>
 <li>Your <strong>deadlines</strong></li>
 <li>Your <strong>blocks</strong> — the person you blocked is not told</li>
-<li>Your <strong>reports</strong> — the person you reported is not told who reported them</li>
+<li>
+<p>Your <strong>reports</strong> — the person you reported is not told who reported them</p>
+</li>
+<li>
+<p>Your <strong>match preferences</strong> — the filters you set for year, faculty, gender and group size are yours alone. They are used to decide who you're shown, but no other user can see them, including through our API directly.</p>
+</li>
 </ul>
-<p><strong>One honest caveat about match preferences.</strong> The filters you set — which years, faculties or genders you want to be matched with — are not shown anywhere in the app. But they are stored on your profile row, and the app's data rules currently allow another signed-in user to retrieve them directly if they go looking, rather than through the app's screens. Nothing in Orbit shows them, and an ordinary user will never see them, but we would rather tell you than let you assume a guarantee we haven't built yet. We're closing this.</p>
-<h3>Photos and images are stored at public web addresses</h3>
-<p>Please read this before you add a profile photo or send a picture in a chat.</p>
-<p>Your <strong>profile photo</strong>, and any <strong>image you send in a course chat or a direct message</strong>, is uploaded as a file to our storage provider and given a plain web address. The profile and the message that shows the image are protected by the access rules above — but <strong>the image file's own web address is not</strong>. Anyone who has that address can open the image in a browser without signing in to Orbit.</p>
-<p>In practice, the address is only handed out to people who can already see the profile or the message. But if one of them copies the link and passes it on, or posts it somewhere, the image is viewable by whoever they gave it to, and it stays viewable.</p>
-<p><strong>What this means for you:</strong> treat any image you put into Orbit as something that could end up outside Orbit. Don't send a picture through Orbit that you would not be comfortable with a stranger seeing.</p>
-<p>We consider this a shortcoming rather than a design choice, and we intend to move image files behind expiring, permission-checked links. When we do, we'll update this section and say so.</p>
+<h3>How photos are handled</h3>
+<p><strong>Images you send in a chat or a direct message are private.</strong> They're stored in a locked container, and when someone who's allowed to see the message opens it, the app mints a temporary link that stops working within the hour. A link copied out of the app is dead by the time most people would try it.</p>
+<p>One limit, stated plainly: another signed-in Orbit user who somehow obtained a file's internal address could request a link for it. They'd need an Orbit account to do it, and there's no way to browse or guess those addresses. This is much narrower than "anyone on the internet", but it isn't zero.</p>
+<p><strong>Your profile photo is different — it is served from a public web address.</strong> That's deliberate: profile photos are meant to be seen by the students you match with, and they appear across several screens. The filename is random, so nobody can guess it or work through a list of users to collect everyone's photos. But if someone who can see your profile copies the image address and passes it on, whoever receives it can open the picture without an Orbit account, and that stays true.</p>
+<p><strong>So: treat your profile photo as public.</strong> Use one you'd be comfortable with a stranger seeing. Chat images are private, but a screenshot isn't — see below.</p>
 <h3>Once you send it, you can't take it back</h3>
 <p>Anything you type into a message or a profile field can be screenshotted, copied, or remembered by the person who sees it. Deleting it from Orbit does not delete it from someone else's phone. Don't put anything in your profile or a message that you'd be upset to see shared.</p>
 <hr />
@@ -273,7 +276,7 @@ footer a{color:var(--purple)}
 </ul>
 <p><strong>Being straight with you about two limits in the current version of the app:</strong></p>
 <ul>
-<li><strong>You can change your profile photo, but there is no button to remove it entirely.</strong> If you've added one and want it gone, email the privacy address in section 1 and we'll delete the file for you. We're adding a remove option.</li>
+<li><strong>You can remove your profile photo</strong> at any time — open your profile and tap <strong>Remove photo</strong>. That deletes the image file itself, not just the link to it.</li>
 <li><strong>Your name, year, faculty, major, study style, and pronouns can be edited but not left blank.</strong> The app won't save a profile with any of them empty. If you don't want to state a major or pronouns, both fields accept a general answer, and pronouns include "prefer not to say".</li>
 </ul>
 <p>Withdrawing consent for required information means you can't keep using Orbit — matching doesn't work without courses and availability. That's the trade-off, and it's a legitimate one, but you should know it upfront.</p>
@@ -291,14 +294,16 @@ footer a{color:var(--purple)}
 <hr />
 <h2>7. Automated filtering and moderation</h2>
 <h3>The automatic filter</h3>
-<p>Orbit checks the text you type against a list of slurs and explicit sexual terms before it is sent. This applies to messages, your display name, and your pronouns. The check ignores common letter-substitution tricks, so writing a blocked word with numbers or symbols in place of letters does not get around it.</p>
+<p>Orbit checks the text you type against a list of slurs, explicit sexual solicitation and self-harm goading before it is stored. This covers messages, your display name, your pronouns and your major.</p>
 <ul>
-<li>The check runs <strong>on your own device</strong>, as you send. Nothing is sent to a third party to be scanned, and no AI classifier is involved.</li>
-<li>If text matches, <strong>it is refused and never sent</strong> — you're shown a message and can edit it. We do not store the refused text, and a refusal on its own is not reported to us or held against your account.</li>
+<li><strong>The check runs in our database, not just in the app.</strong> The app checks first so you get an instant, readable message instead of an error — but the database refuses the content regardless, so the filter can't be skipped by anything running on a phone.</li>
+<li>It sees through common evasion: letter substitution (<code>n1gg3r</code>), padding (<code>niiiggger</code>), and spacing or punctuation between letters.</li>
+<li>If text matches, <strong>it is refused and never stored</strong> — you're shown a message and can edit it. We don't keep the refused text, and a refusal on its own is not reported to us or held against your account.</li>
 <li><strong>The filter only reads text.</strong> It does not scan images. Images are reviewed only when someone reports them.</li>
-<li>The filter is deliberately narrow. It blocks slurs and explicit sexual content — it does not police rudeness, disagreement, or bad jokes. Those are handled by reporting and blocking.</li>
+<li>Nothing here is sent to a third party to be scanned, and no AI classifier is involved.</li>
 </ul>
-<p>No automatic filter catches everything, and this one is not meant to. It is a first line, and reporting is the real one.</p>
+<p>It is deliberately narrow, and tuned to avoid false alarms on ordinary coursework talk — "I'm suspicious of that answer" and "the therapeutic approach" are not flagged, though a naive word filter would flag both. It does not police rudeness, disagreement or bad jokes. Those are handled by reporting and blocking.</p>
+<p>No automatic filter catches everything, and this one is not meant to. It is a first line. Reporting is the real one.</p>
 <h3>Human moderation</h3>
 <p>Moderation at Orbit works like this today:</p>
 <ul>
@@ -400,7 +405,9 @@ footer a{color:var(--purple)}
 <li>Access to the database is controlled by <strong>row-level security rules</strong> — the rules that enforce who can see whose profile are enforced by the database itself, not just by the app on your phone.</li>
 <li>Passwords are handled by Supabase Auth and stored <strong>hashed</strong>, never in plain text. Nobody at Orbit can see your password.</li>
 <li>Access to the production database is limited to <strong>one person — the developer, who is also the Privacy Officer</strong> — through an account protected by <strong>multi-factor authentication</strong>. Nobody else has credentials. If that ever changes, we'll update this policy.</li>
-<li><strong>Exception: image files.</strong> As explained in section 4, profile photos and images sent in chats are stored at public web addresses and are not protected by the rules above.</li>
+<li><strong>Chat images</strong> are stored privately and reached only through temporary links that expire within the hour.</li>
+<li><strong>Exception: profile photos</strong>, which are served from a public web address by design, under an unguessable filename. Section 4 explains what that does and doesn't mean.</li>
+<li><strong>Content rules and the UBC email requirement are enforced by the database</strong>, not only by the app, so they can't be bypassed by anything running on a phone.</li>
 </ul>
 <p>What we can't promise: no system is perfectly secure. We can't guarantee your information will never be accessed by someone who shouldn't have it. What we can promise is that we'll take it seriously and tell you if it happens — see section 15.</p>
 <p>Your part: use a strong, unique password, don't share your login, and don't put sensitive personal information (financial details, health information, your home address) into your profile or messages. Orbit has no reason to ask for any of that.</p>
