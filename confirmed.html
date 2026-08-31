@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Email confirmed &middot; Orbit</title>
+<meta name="description" content="Confirm your Orbit email address.">
+<style>
+:root{
+  --purple:#5B4FC7; --purple-dark:#3B2FA0; --purple-light:#7B6CF0;
+  --ink:#1A1A2E; --muted:#6B6B7B; --line:#E4E4EF; --tint:#F5F3FE; --bg:#FBFBFE;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+header{background:linear-gradient(135deg,var(--purple-dark),var(--purple-light));color:#fff;padding:36px 24px 30px}
+header .in{max-width:760px;margin:0 auto}
+header .brand{font-size:26px;font-weight:700;letter-spacing:-.4px;margin:0 0 4px}
+header .brand a{color:#fff;text-decoration:none}
+header .sub{margin:0;opacity:.85;font-size:14px}
+nav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav .in{max-width:760px;margin:0 auto;padding:0 24px;display:flex;gap:22px;overflow-x:auto}
+nav a{display:block;padding:14px 0;color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;
+  border-bottom:2px solid transparent;white-space:nowrap}
+nav a:hover{color:var(--purple)}
+nav a.on{color:var(--purple);border-bottom-color:var(--purple)}
+main{max-width:760px;margin:0 auto;padding:40px 24px 80px}
+main h1{font-size:32px;line-height:1.2;letter-spacing:-.6px;margin:0 0 24px}
+main h2{font-size:22px;letter-spacing:-.3px;margin:44px 0 14px;padding-top:22px;border-top:1px solid var(--line)}
+main h3{font-size:17px;margin:28px 0 10px;color:var(--purple-dark)}
+main p,main li{color:#2C2C42}
+main a{color:var(--purple)}
+main ul,main ol{padding-left:22px}
+main li{margin:6px 0}
+main hr{display:none}  /* h2 already draws a rule; the markdown --- doubled it */
+main strong{color:var(--ink)}
+main blockquote{margin:20px 0;padding:14px 18px;background:var(--tint);
+  border-left:3px solid var(--purple-light);border-radius:0 8px 8px 0;color:#3A3A55}
+main blockquote p{margin:0}
+main em{color:var(--muted)}
+.tablewrap{overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:10px;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:460px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--tint);font-weight:600;color:var(--purple-dark)}
+tr:last-child td{border-bottom:0}
+code{background:var(--tint);padding:2px 6px;border-radius:5px;font-size:13.5px}
+footer{border-top:1px solid var(--line);padding:28px 24px 60px;color:var(--muted);font-size:13.5px}
+footer .in{max-width:760px;margin:0 auto}
+footer a{color:var(--purple)}
+.cards{display:grid;gap:14px;margin:28px 0}
+.card{display:block;padding:20px 22px;background:#fff;border:1px solid var(--line);
+  border-radius:12px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--purple-light);transform:translateY(-1px)}
+.card b{display:block;font-size:17px;color:var(--purple-dark);margin-bottom:3px}
+.card span{font-size:14px;color:var(--muted)}
+@media(max-width:520px){main h1{font-size:26px}header{padding:28px 20px 24px}}
+
+.wrap{max-width:520px;margin:0 auto;padding:56px 24px 80px;text-align:center}
+.mark{width:84px;height:84px;border-radius:42px;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 26px;font-size:38px;background:var(--tint);color:var(--purple)}
+.mark.bad{background:#FDECEA;color:#C2453D}
+.wrap h1{font-size:27px;letter-spacing:-.5px;margin:0 0 12px}
+.wrap p{color:var(--muted);font-size:15.5px;line-height:1.6;margin:0 0 14px}
+.steps{text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:18px 22px;margin:26px 0}
+.steps ol{margin:0;padding-left:20px}
+.steps li{margin:7px 0;color:#2C2C42}
+.muted{font-size:13.5px;color:var(--muted);margin-top:26px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<header><div class="in">
+  <p class="brand"><a href="index.html">Orbit</a></p>
+  <p class="sub">Find someone studying the same thing, at the same time.</p>
+</div></header>
+
+<main>
+  <div class="wrap">
+    <div id="ok">
+      <div class="mark">&#10003;</div>
+      <h1>Your email is confirmed</h1>
+      <p>Thanks &mdash; your Orbit account is verified and ready.</p>
+      <div class="steps">
+        <ol>
+          <li>Close this tab.</li>
+          <li>Open the <strong>Orbit</strong> app.</li>
+          <li>Log in with the email and password you just signed up with.</li>
+        </ol>
+      </div>
+      <p class="muted">You can close this page now. Nothing else is needed here.</p>
+    </div>
+
+    <div id="bad" class="hide">
+      <div class="mark bad">!</div>
+      <h1>This link didn&rsquo;t work</h1>
+      <p id="reason">The confirmation link has expired or has already been used.</p>
+      <div class="steps">
+        <ol>
+          <li>Open the <strong>Orbit</strong> app.</li>
+          <li>Try logging in &mdash; if your account is already confirmed, you&rsquo;re in.</li>
+          <li>If it says you&rsquo;re not confirmed, tap <strong>Resend confirmation email</strong> on the check-your-email screen.</li>
+        </ol>
+      </div>
+      <p class="muted">Still stuck? Email <a href="mailto:orbitstudyapp@gmail.com">orbitstudyapp@gmail.com</a> and we&rsquo;ll sort it out.</p>
+    </div>
+  </div>
+</main>
+
+<footer><div class="in">
+  <p>Orbit is operated by an independent developer in British Columbia, Canada. Not affiliated
+     with or endorsed by the University of British Columbia.</p>
+  <p>Questions: <a href="mailto:orbitstudyapp@gmail.com">orbitstudyapp@gmail.com</a></p>
+</div></footer>
+
+<script>
+// Supabase reports a failed verification in the URL fragment, e.g.
+//   #error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired
+// A successful one carries tokens instead. Read it and show the honest state
+// rather than telling someone their email is confirmed when it isn't.
+(function () {
+  try {
+    var h = (window.location.hash || '').replace(/^#/, '');
+    var q = new URLSearchParams(h);
+    var err = q.get('error') || q.get('error_code');
+    if (!err) return;
+
+    document.getElementById('ok').classList.add('hide');
+    document.getElementById('bad').classList.remove('hide');
+
+    var code = q.get('error_code') || '';
+    var desc = q.get('error_description') || '';
+    var reason = document.getElementById('reason');
+    if (code.indexOf('expired') !== -1) {
+      reason.textContent = 'That confirmation link has expired. Links are only valid for a short time.';
+    } else if (desc) {
+      reason.textContent = decodeURIComponent(desc.replace(/\+/g, ' '));
+    }
+  } catch (e) {
+    /* leave the success state; a broken fragment isn't worth a scary message */
+  }
+})();
+</script>
+</body>
+</html>
