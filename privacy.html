@@ -139,7 +139,9 @@ footer a{color:var(--purple)}
 </tr>
 </tbody>
 </table></div>
-<p>Any email domain works. If you sign up with a UBC email address, your profile gets a <strong>"verified" badge</strong>. The badge means "this person confirmed a UBC email address." It is not a background check and it is not a UBC endorsement.</p>
+<p><strong>You need a UBC email address to sign up</strong> (<code>@student.ubc.ca</code>, <code>@alumni.ubc.ca</code>, or <code>@ubc.ca</code>), and you have to click a confirmation link sent to it. So every account on Orbit was created by someone who controls a UBC address.</p>
+<p>Be clear about what that does and doesn't prove. It shows the person could receive email at a UBC address. It is <strong>not</strong> proof of current enrolment, not an identity check, not a background check, and not a UBC endorsement. Addresses get shared, kept after graduation, and occasionally used by someone other than who you'd expect. Treat it as a weak signal, not a guarantee.</p>
+<p>A very small number of accounts belonging to the developer are exempt so the app can be tested and reviewed by Apple. They are not used for matching.</p>
 <h3>Optional — you choose whether to add these</h3>
 <div class="tablewrap"><table>
 <thead>
@@ -220,34 +222,38 @@ footer a{color:var(--purple)}
 <li>Your <strong>display name</strong></li>
 <li>Your <strong>profile photo</strong> (if you added one)</li>
 <li>Your <strong>year of study</strong></li>
-<li>Your <strong>faculty</strong></li>
 <li>Your <strong>major</strong></li>
 <li>Your <strong>pronouns</strong></li>
-<li>Your <strong>verified badge</strong>, if you have one</li>
+<li>Your <strong>gender</strong> — unless you selected "prefer not to say", in which case nothing is shown</li>
+<li>Your <strong>study style</strong></li>
 <li>The <strong>courses</strong> you're taking</li>
-<li>Your <strong>study preferences</strong> — style, intensity, session length, environments, goals</li>
-<li>Your <strong>overlapping availability</strong> — the time blocks where you and they are both free</li>
+<li><strong>Your whole weekly availability grid</strong> — every block you marked free. Read the next part before you fill it in.</li>
 </ul>
+<p>Your <strong>faculty</strong>, <strong>intensity</strong>, <strong>session length</strong>, <strong>preferred environments</strong> and <strong>study goals</strong> are used to rank and filter matches, but are not displayed on your profile.</p>
 <h3>Your availability grid reveals when you are and are not free</h3>
-<p>This deserves saying plainly. When you fill in the weekly availability grid, other users who match with you can see which time blocks you marked free and, by simple deduction, which ones you did not. Over a full week, that gives someone a rough picture of your schedule — when you're likely in class, at work, or busy, and when you're likely available.</p>
-<p>Only your <strong>overlapping</strong> blocks are shown, not your full grid. But a person can learn quite a lot by comparing overlaps. <strong>Only mark yourself free for the blocks you actually want to be contacted about.</strong></p>
+<p>This deserves saying plainly, because it's the least obvious thing on this page.</p>
+<p><strong>Anyone who can see your profile sees your entire weekly availability grid</strong> — all 35 blocks, exactly as you filled it in. Not just the times you overlap with them. All of it.</p>
+<p>From that, a stranger can infer a good deal about your week: when you're in class, when you work, which evenings you're out, whether you're around on weekends. Marked free every weekday at 9am and never on Friday nights? That is now visible to every person you match with, and you cannot see who looked.</p>
+<p><strong>So fill it in as an invitation, not as a diary.</strong> Mark the blocks you actually want someone to contact you about, and leave the rest unmarked — including blocks where you're free but would rather not be asked. Unmarked doesn't mean "busy", it just means "don't ask", and nobody can tell the difference.</p>
 <h3>Who can see your profile</h3>
 <p>Someone sees your profile only if <strong>all</strong> of these are true:</p>
 <ol>
 <li>Your account is set to <strong>discoverable</strong>. If you turn discoverability off, you stop appearing in matching.</li>
-<li>You <strong>both</strong> pass each other's match filters. If they don't fit your preferences for year, faculty, gender, or group size, they don't see you — and the reverse is also true.</li>
-<li>Neither of you has <strong>blocked</strong> the other. A block removes visibility in both directions.</li>
+<li>You are <strong>taking at least one course in common</strong>. Orbit's matches list is built around studying the same thing, so people with no shared course don't appear on it at all.</li>
+<li>You <strong>both</strong> pass each other's match filters. If they don't fit your preferences for year, faculty, gender or group size, they don't see you — and the reverse is also true. Both directions are enforced, so setting a filter narrows who can see you as well as who you see.</li>
+<li>Neither of you has <strong>blocked</strong> the other, and neither has <strong>passed</strong> on the other. A block removes visibility in both directions.</li>
+<li>Neither account is <strong>banned</strong>.</li>
 </ol>
+<p>Availability is not a gate. Someone whose free blocks overlap yours is shown higher up the list, but people who haven't filled in their grid still appear.</p>
 <h3>What other users never see</h3>
 <ul>
 <li>Your <strong>email address</strong></li>
-<li>Your <strong>gender</strong> — it is used to apply match filters, and is never displayed as a field on your profile to anyone, whatever you selected</li>
+<li>Your <strong>gender</strong>, <em>if</em> you selected "prefer not to say" — that choice is honoured and no gender is shown</li>
 <li>Your <strong>deadlines</strong></li>
-<li>Your <strong>match preferences</strong> — the filters you set are yours alone</li>
 <li>Your <strong>blocks</strong> — the person you blocked is not told</li>
 <li>Your <strong>reports</strong> — the person you reported is not told who reported them</li>
-<li>Your <strong>full availability grid</strong> — only the overlap with the viewer</li>
 </ul>
+<p><strong>One honest caveat about match preferences.</strong> The filters you set — which years, faculties or genders you want to be matched with — are not shown anywhere in the app. But they are stored on your profile row, and the app's data rules currently allow another signed-in user to retrieve them directly if they go looking, rather than through the app's screens. Nothing in Orbit shows them, and an ordinary user will never see them, but we would rather tell you than let you assume a guarantee we haven't built yet. We're closing this.</p>
 <h3>Photos and images are stored at public web addresses</h3>
 <p>Please read this before you add a profile photo or send a picture in a chat.</p>
 <p>Your <strong>profile photo</strong>, and any <strong>image you send in a course chat or a direct message</strong>, is uploaded as a file to our storage provider and given a plain web address. The profile and the message that shows the image are protected by the access rules above — but <strong>the image file's own web address is not</strong>. Anyone who has that address can open the image in a browser without signing in to Orbit.</p>
@@ -400,10 +406,12 @@ footer a{color:var(--purple)}
 <p>Your part: use a strong, unique password, don't share your login, and don't put sensitive personal information (financial details, health information, your home address) into your profile or messages. Orbit has no reason to ask for any of that.</p>
 <hr />
 <h2>14. Age restrictions</h2>
-<p><strong>You must be 19 or older to use Orbit.</strong></p>
-<p>19 is the age of majority in British Columbia. We set the floor there because under BC's <em>Infants Act</em>, agreements with people under 19 generally aren't enforceable against them, and because we're not set up to handle the additional protections that minors are entitled to.</p>
-<p>We don't knowingly collect personal information from anyone under 19. If we find out an account belongs to someone under 19, we'll delete it and its data.</p>
-<p>If you believe someone under 19 has an Orbit account, email the privacy address in section 1 and we'll deal with it.</p>
+<p><strong>You must be 17 or older to use Orbit.</strong></p>
+<p>We set the floor at 17 because some first-year university students are still 17 when term starts, and excluding them would cut out part of the group Orbit is built for.</p>
+<p><strong>This means some people on Orbit are under 19, which is the age of majority in British Columbia.</strong> If you are an adult using Orbit, assume you may be matched with, or messaged by, someone who is a minor. Behave accordingly. If you are under 19, everything in our safety guidelines applies to you with more force, not less — read them before you agree to meet anyone.</p>
+<p>We do not verify anyone's age. We ask you to confirm you're 17 or older at sign-up and we take your word for it. Anyone can type anything into that box.</p>
+<p>We don't knowingly collect personal information from anyone under 17. If we find out an account belongs to someone under 17, we'll delete it and its data.</p>
+<p>If you believe someone under 17 has an Orbit account, or that an adult is behaving inappropriately toward a minor, email the privacy address in section 1. Reports involving a minor's safety go to the front of the queue.</p>
 <hr />
 <h2>15. If there's a data breach</h2>
 <p>If your personal information is lost, stolen, or accessed by someone who shouldn't have it, and there's a <strong>real risk of significant harm</strong> to you, we will:</p>
